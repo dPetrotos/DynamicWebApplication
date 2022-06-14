@@ -1,4 +1,7 @@
 <html>
+<head>
+    <script src="/js/showHidePassword.js"></script>
+</head>
 <?php
 require '../App/Views/common/head.php';
 require '../App/Views/common/navigation.php';
@@ -17,7 +20,7 @@ if (!empty($user->errors)) {
 <h1 class="login-title">Change Password</h1>
 
 <section>
-    <div class="container mt-5 pt-5" id="formBox">
+    <div class="container mt-5 pt-5" id="formBox" onsubmit="return validateNewPassword()">
         <div class="row">
             <div class="col-12 col-sm-7 col-md-6 m-auto">
                 <div class="card border-0 shadow">
@@ -27,9 +30,10 @@ if (!empty($user->errors)) {
                         <form action="/profile/updatePassword" method="post">
                             <input type="password" name="password" id="password" class="form-control my-4 py-2" placeholder="New Password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Minimum 8 chars, at least one letter and one number"/>
                             <input type="password" name="passwordConfirmation" id="passwordConfirmation" class="form-control my-4 py-2" placeholder="Repeat password"  required/>
+                            <img src="/images/eye-red.png" height="18" id="eyeimg1" onmousedown="flipEyeImg(this, true)" onmouseup="flipEyeImg(this, false)">
 
                             <div class="text-center mt-3">
-                                <button class="btn btn-primary">Save</button>
+                                <button class="btn btn-primary" onclick="validateNewPassword()">Save</button>
                                 <br>
                                 <br>
                                 <a href="profile">Cancel</a>
@@ -46,3 +50,5 @@ if (!empty($user->errors)) {
 require '../App/Views/common/footer.php';
 ?>
 </html>
+
+<script src="/js/pwvalidation.js"></script>

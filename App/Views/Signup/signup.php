@@ -44,7 +44,7 @@ if (!empty($user->errors)) {
 
 <section>
     <div class="container mt-5 pt-5">
-        <div class="row formBox">
+        <div class="row formBox" onsubmit="return validateNewPassword()">
             <div class="col-12 col-sm-7 col-md-6 m-auto">
                 <div class="card border-0 shadow">
                     <div class="card-body">
@@ -57,7 +57,7 @@ if (!empty($user->errors)) {
                             <img src="/images/eye-red.png" height="18" id="eyeimg1" onmousedown="flipEyeImg(this, true)" onmouseup="flipEyeImg(this, false)">
 
                             <div class="text-center mt-3">
-                                <button class="btn btn-primary">Sign up</button>
+                                <button class="btn btn-primary" onclick="validateNewPassword()">Sign up</button>
                                 <br>
                                 <br>
                                 <a href="/login" class="link">Already have an account? Login!</a>
@@ -75,3 +75,5 @@ if (!empty($user->errors)) {
 require '../App/Views/common/footer.php';
 ?>
 </html>
+
+<script src="/js/pwvalidation.js"></script>

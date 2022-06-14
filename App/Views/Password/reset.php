@@ -19,7 +19,7 @@ if(!empty($user->errors)){
 </head>
 
 <h1>Reset password</h1>
-<form method="post" id="formPassword" action="/password/reset-password">
+<form method="post" id="formPassword" action="/password/reset-password" onsubmit="return validateNewPassword()">
 
     <input type="hidden" name="token" value="<?php $token ?>">
 
@@ -34,5 +34,7 @@ if(!empty($user->errors)){
 <!--        <input type="password" id="passwordConfirmation" name="passwordConfirmation" placeholder="Repeat password" required>-->
 <!--    </div>-->
 
-    <button type="submit">Reset password</button>
+    <button class="btn btn-primary" onclick="validateNewPassword()">Reset password</button>
 </form>
+
+<script src="/js/pwvalidation.js"></script>
